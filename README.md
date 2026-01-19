@@ -1,2 +1,26 @@
-# student-performance-analytics
-AWS Glue ETL &amp; Athena project for Student Performance Analytics
+# student-performance-analytics  -  AWS Glue ETL Athena project for Student Performance Analytics
+Project Overview
+This project demonstrates an end-to-end data engineering pipeline on AWS to process,
+clean, transform, and analyze student exam performance data using Amazon S3, AWS Glue,
+and Amazon Athena.
+Architecture
+Raw CSV Files (S3) → Glue Crawler → Athena Raw Tables → Athena Views → Final Analytics
+View
+Datasets
+Students (rollno, studentname, email, city)
+Subjects (subjectid, subjectname)
+Marks (rollno, subjectid, marksobtained, examdate)
+Data Issues Identified
+• Header rows ingested as data
+• Inconsistent schemas (col0, col1, etc.)
+• Blank columns after joins
+Transformations
+• Cleaned data using Athena views
+• Joined students, marks, and subjects tables
+• Derived PASS/FAIL column based on marks
+PASS / FAIL Logic
+marks ≥ 40 → PASS, else FAIL
+Final Output
+student_results_final view containing clean, analytics-ready data
+Technologies Used
+Amazon S3, AWS Glue, Amazon Athena, SQL, Parquet
